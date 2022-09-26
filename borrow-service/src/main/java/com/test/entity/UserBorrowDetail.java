@@ -9,5 +9,5 @@ import java.util.List;
 @AllArgsConstructor
 public class UserBorrowDetail {
     User user;
-    List<Book> bookList;
+    Book book;
 }

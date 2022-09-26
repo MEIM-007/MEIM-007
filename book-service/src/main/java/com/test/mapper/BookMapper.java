@@ -1,12 +1,10 @@
 package com.test.mapper;
 
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.test.entity.Book;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
-@Mapper
-public interface BookMapper {
+public interface BookMapper extends BaseMapper<Book> {
 
-    @Select("select * from DB_BOOK where bid = #{bid}")
-    Book getBookById(int bid);
+
 }

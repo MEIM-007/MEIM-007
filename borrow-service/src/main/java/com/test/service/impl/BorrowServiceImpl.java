@@ -30,10 +30,7 @@ public class BorrowServiceImpl implements BorrowService{
     public UserBorrowDetail getUserBorrowDetailByUid(int uid) {
         List<Borrow> borrow = mapper.getBorrowsByUid(uid);
         User user = userClient.getUserById(uid);
-        List<Book> bookList = borrow
-                .stream()
-                .map(b -> bookClient.getBookById(b.getBid()))
-                .collect(Collectors.toList());
-        return new UserBorrowDetail(user, bookList);
+        Book book = bookClient.findOne(uid);
+        return new UserBorrowDetail(user, book);
     }
 }

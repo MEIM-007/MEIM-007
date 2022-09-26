@@ -1,0 +1,18 @@
+spring:
+  application:
+    # 服务名称和配置文件保持一致
+    name: userservice
+  profiles:
+    # 环境也是和配置文件保持一致
+    active: dev
+  cloud:
+    nacos:
+      config:
+        # 配置文件后缀名
+        file-extension: yml
+        # 配置中心服务器地址，也就是Nacos地址
+        server-addr: 1.12.238.40:8848
+    sentinel:
+      transport:
+        # 添加监控页面地址即可
+        dashboard: 1.12.238.40:8858
