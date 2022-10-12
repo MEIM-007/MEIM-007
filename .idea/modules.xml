@@ -4,9 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/MEIM-007.iml" filepath="$PROJECT_DIR$/.idea/MEIM-007.iml" />
       <module fileurl="file://$PROJECT_DIR$/commons/commons.iml" filepath="$PROJECT_DIR$/commons/commons.iml" />
-      <module fileurl="file://$PROJECT_DIR$/book-service/goodservice.iml" filepath="$PROJECT_DIR$/book-service/goodservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/borrow-service/orderservice.iml" filepath="$PROJECT_DIR$/borrow-service/orderservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/user-service/userservice.iml" filepath="$PROJECT_DIR$/user-service/userservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/goodservice/goodservice.iml" filepath="$PROJECT_DIR$/goodservice/goodservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/orderservice/orderservice.iml" filepath="$PROJECT_DIR$/orderservice/orderservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/userservice/userservice.iml" filepath="$PROJECT_DIR$/userservice/userservice.iml" />
     </modules>
   </component>
 </project>

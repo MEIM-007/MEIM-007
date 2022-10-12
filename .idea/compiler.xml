@@ -14,18 +14,26 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="book-service" target="1.8" />
       <module name="commons" target="1.8" />
+      <module name="good-service" target="1.8" />
       <module name="goodservice" target="1.8" />
       <module name="MEIM-007" target="1.8" />
+      <module name="order-service" target="1.8" />
       <module name="orderservice" target="1.8" />
+      <module name="user-service" target="1.8" />
       <module name="userservice" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="book-service" options="-parameters" />
       <module name="commons" options="-parameters" />
+      <module name="good-service" options="-parameters" />
       <module name="goodservice" options="-parameters" />
+      <module name="order-service" options="-parameters" />
       <module name="orderservice" options="-parameters" />
+      <module name="user-service" options="-parameters" />
       <module name="userservice" options="-parameters" />
     </option>
   </component>
