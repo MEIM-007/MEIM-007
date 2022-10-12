@@ -3,10 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/MEIM-007.iml" filepath="$PROJECT_DIR$/.idea/MEIM-007.iml" />
-      <module fileurl="file://$PROJECT_DIR$/book-service/book-service.iml" filepath="$PROJECT_DIR$/book-service/book-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/borrow-service/borrow-service.iml" filepath="$PROJECT_DIR$/borrow-service/borrow-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/commons/commons.iml" filepath="$PROJECT_DIR$/commons/commons.iml" />
-      <module fileurl="file://$PROJECT_DIR$/user-service/user-service.iml" filepath="$PROJECT_DIR$/user-service/user-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/book-service/goodservice.iml" filepath="$PROJECT_DIR$/book-service/goodservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/borrow-service/orderservice.iml" filepath="$PROJECT_DIR$/borrow-service/orderservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-service/userservice.iml" filepath="$PROJECT_DIR$/user-service/userservice.iml" />
     </modules>
   </component>
 </project>
