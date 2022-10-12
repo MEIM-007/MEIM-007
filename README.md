@@ -1,8 +1,6 @@
-- 👋 Hi, I’m @MEIM-007
-- 👀 I’m interested in Genshin Impact
-- 🌱 I’m currently learning build mobile phone applications
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me my facebook id Hu Zhibo and Twitter ud @MEIM14329664
+- 👋 Hi, This is a project about shopping for community
+- 👀 There are many technology in this project such as Nacos RabbitMQ SpringCloud Alibaba Mysql Redis ……
+- 🌹 If give you some help ，please give me a star，thank you
 
 <!---
 MEIM-007/MEIM-007 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

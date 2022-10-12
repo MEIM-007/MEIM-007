@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.userservice.db.dao.UserDao">
+
+    <select id="selectUser" parameterType="Map" resultType="long">
+        select COUNT(id) from user where
+        <if test="account!=null">
+            account = #{account}
+        </if>
+        <if test="password!=null">
+            and password = #{password}
+        </if>
+    </select>
+
+    <insert id="insertuser" parameterType="Map">
+        insert into user
+        SET id = #{id}, name = #{name}, account = #{account},
+            password = #{password}, phone = #{phone}, address = #{address},
+            email = #{email}, avatar = #{avatar}
+    </insert>
+</mapper>
