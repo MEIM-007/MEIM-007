@@ -1,0 +1,17 @@
+server:
+  port: 8500
+spring:
+  application:
+    name: gateway # 服务名称
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 1.12.238.40:8848 # 注册中心地址  # 默认是没有密码的
+    gateway:
+      routes:
+      - id: userservice
+        uri: http://localhost:8001
+        predicates:
+          - Path=/user/**
