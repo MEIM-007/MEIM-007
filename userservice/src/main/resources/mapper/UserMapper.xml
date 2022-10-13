@@ -13,6 +13,16 @@
         </if>
     </select>
 
+    <select id="getOther" parameterType="Map" resultType="map">
+        select * from user where
+        <if test="account!=null">
+            account = #{account}
+        </if>
+        <if test="password!=null">
+            and password = #{password}
+        </if>
+    </select>
+
     <insert id="insertuser" parameterType="Map">
         insert into user
         SET id = #{id}, name = #{name}, account = #{account},
