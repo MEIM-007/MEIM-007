@@ -8,17 +8,24 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="goodservice" />
-        <module name="commons" />
         <module name="gateway" />
+        <module name="commons" />
         <module name="userservice" />
         <module name="orderservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="book-service" target="1.8" />
+      <module name="commons" target="1.8" />
+      <module name="gateway" target="1.8" />
       <module name="good-service" target="1.8" />
+      <module name="goodservice" target="1.8" />
+      <module name="MEIM-007" target="1.8" />
       <module name="order-service" target="1.8" />
+      <module name="orderservice" target="1.8" />
+      <module name="SpringCloudStudy" target="1.8" />
       <module name="user-service" target="1.8" />
+      <module name="userservice" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
