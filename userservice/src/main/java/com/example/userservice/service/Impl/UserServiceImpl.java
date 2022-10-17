@@ -1,7 +1,6 @@
 package com.example.userservice.service.Impl;
 
 
-import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.lang.Snowflake;
 import com.example.config.Key;
 import com.example.exception.GlobalException;
@@ -31,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public String login(UserEntity userEntity) {
+    public Map login(UserEntity userEntity) {
         try {
             if(userEntity.getAccount() == null || userEntity.getPassword() == null){
                 throw new GlobalException("账号或密码不能为空");
@@ -44,29 +43,39 @@ public class UserServiceImpl implements UserService {
                     String encodedData = userDao.getOther(map).get("password").toString();
                     Key key = new Key();
                     String decodedData = RSAUtil.privateDecrypt(encodedData, RSAUtil.getPrivateKey(key.getSkey()));
-                    if(userEntity.getAccount().equals(decodedData)){
-                        long id = (long) userDao.getOther(map).get("id");
-                        StpUtil.login(id);
-                        String token = StpUtil.getTokenInfo().getTokenValue();
-                        return token;
+                    if(userEntity.getPassword().equals(decodedData)){
+                        String id = userDao.getOther(map).get("id").toString();
+                        HashMap returnmap = new HashMap(){
+                            {
+                                put("code","200");
+                                put("id",id);
+                            }
+                        };
+                        return returnmap;
                     }else {
                         throw new GlobalException("密码错误");
                     }
                 }
             }
         }catch (Exception e){
-            return e.getMessage();
+            HashMap returnmap = new HashMap(){
+                {
+                    put("code","467");
+                    put("msg",e.getMessage());
+                }
+            };
+            return returnmap;
         }
     }
 
     @Override
     @Transactional
-    public long register(Map param) {
+    public Boolean register(Map param) {
         HashMap mapTemp = new HashMap();
         if(param.get("account") != null){
             mapTemp.put("account", param.get("account"));
         }else {
-            return 0L;
+            return false;
         }
         try {
             if(userDao.selectUser(mapTemp) != 0){
@@ -81,16 +90,16 @@ public class UserServiceImpl implements UserService {
                     String encodedData = RSAUtil.publicEncrypt(param.get("password").toString(), RSAUtil.getPublicKey(key.getGkey()));
                     param.replace("password",encodedData);
                     if(userDao.insertuser(param)!=0){
-                        return id;
+                        return true;
                     }else {
-                        return 0L;
+                        return false;
                     }
                 } else {
-                    return 0L;
+                    return false;
                 }
             }
         }catch (Exception e){
-            return 0L;
+            return false;
         }
     }
 }

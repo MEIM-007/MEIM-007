@@ -8,8 +8,8 @@ import java.util.Map;
 
 public interface UserService {
 
-    public String login(UserEntity userEntity);
+    public Map login(UserEntity userEntity);
 
-    public long register(Map param);
+    public Boolean register(Map param);
 
 }

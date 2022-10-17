@@ -10,8 +10,8 @@
         <module name="goodservice" />
         <module name="gateway" />
         <module name="commons" />
-        <module name="userservice" />
         <module name="orderservice" />
+        <module name="userservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

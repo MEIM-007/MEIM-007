@@ -42,6 +42,13 @@ public class R extends HashMap<String, Object> {
         return r;
     }
 
+    public static R error(String code, String msg) {
+        R r = new R();
+        r.put("code", code);
+        r.put("msg", msg);
+        return r;
+    }
+
     public static R error(String msg) {
         return error(HttpStatus.SC_INTERNAL_SERVER_ERROR, msg);
     }
