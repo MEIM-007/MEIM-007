@@ -8,10 +8,13 @@ import java.util.Map;
 
 public interface UserDao {
 
-    public long selectUser(Map param);
+    long selectUser(Map param);
 
-    public Map getOther(Map param);
+    Map getOther(Map param);
 
-    public int insertuser(Map param);
+    int insertuser(Map param);
+    int updateuser(Map param);
+
+    int deleteuser(String id);
 
 }

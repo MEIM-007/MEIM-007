@@ -29,4 +29,15 @@
             password = #{password}, phone = #{phone}, address = #{address},
             email = #{email}, avatar = #{avatar}
     </insert>
+
+    <update id="updateuser" parameterType="Map">
+        update user
+        SET name = #{name}, phone = #{phone}, address = #{address},
+            email = #{email}, avatar = #{avatar}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteuser" parameterType="String">
+        delete from user where id = #{id}
+    </delete>
 </mapper>

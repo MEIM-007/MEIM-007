@@ -2,8 +2,12 @@ package com.example.userservice.controller;
 
 
 import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.userservice.Util.JwtUtil;
+import com.example.userservice.Util.PageEntity;
 import com.example.userservice.db.entity.UserEntity;
+import com.example.userservice.service.PageService;
 import com.example.userservice.service.UserService;
 import com.example.util.R;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +24,9 @@ public class UserController {
     @Resource
     public UserService userService;
 
+    @Resource
+    public PageService pageService;
+
     @PostMapping("/login")
     public R login(@RequestBody UserEntity userEntity){
         Map map = userService.login(userEntity);
@@ -34,15 +41,45 @@ public class UserController {
     @PostMapping("/register")
     public R register(@RequestBody UserEntity userEntity){
         Map param = BeanUtil.beanToMap(userEntity);
-        if (userService.register(param)){
+        if (!userService.register(param)){
             return R.error(444,"注册失败");}
         else {
             return R.ok().put("msg","注册成功");
         }
     }
 
-    @GetMapping("/test")
-    public String test(){
-        return "test";
+    @PostMapping("/update")
+    public R update(@RequestBody UserEntity userEntity){
+        Map param = BeanUtil.beanToMap(userEntity);
+        if (!userService.update(param)){
+            return R.error(444,"修改失败");}
+        else {
+            return R.ok().put("msg","修改成功");
+        }
+    }
+
+    @PostMapping("/delete")
+    public R delete(@RequestBody UserEntity userEntity){
+        Map param = BeanUtil.beanToMap(userEntity);
+        if (!userService.delete(param.get("id").toString())){
+            return R.error(444,"删除失败");}
+        else {
+            return R.ok().put("msg","删除成功");
+        }
+    }
+
+    @GetMapping("/page")
+    public R findPage(@RequestBody PageEntity page){
+        QueryWrapper<UserEntity> queryWrapper=new QueryWrapper<>();
+        if(page.getAccount()!=null){
+            queryWrapper.like("account",page.getAccount());
+        }
+        if(page.getPhone()!=null){
+            queryWrapper.like("phone",page.getPhone());
+        }
+        if(page.getAddress()!=null){
+            queryWrapper.like("address",page.getAddress());
+        }
+        return R.ok().put("data",pageService.page(new Page<>(page.getPageNum(), page.getPageSize()),queryWrapper));
     }
 }

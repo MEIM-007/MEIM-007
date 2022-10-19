@@ -1,12 +1,17 @@
 package com.example.userservice.db.entity;
 
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
+@TableName("user")
 public class UserEntity {
 
-    public long id;
+    @TableId(value = "id", type = IdType.AUTO)
+    public Long id;
 
     public String name;
 

@@ -102,4 +102,20 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
+
+    @Override
+    public Boolean update(Map param) {
+        if(userDao.updateuser(param)==1){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public Boolean delete(String id) {
+        if(userDao.deleteuser(id)==1){
+            return true;
+        }
+        return false;
+    }
 }
