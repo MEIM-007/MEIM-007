@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.goodservice.db.dao.GoodDao">
+    <insert id="insertgood" parameterType="Map">
+        insert into good
+        SET id = #{id}, name = #{name}, type = #{type},
+            sum = #{sum}, price = #{price},
+            address = #{address}, detail = #{detail}, other = #{other}, img = #{img}
+    </insert>
+
+    <update id="updategood" parameterType="Map">
+        update good
+        SET name = #{name}, type = #{type},
+            sum = #{sum}, price = #{price},
+            address = #{address}, detail = #{detail}, other = #{other}, img = #{img}
+        where id = #{id}
+    </update>
+
+    <delete id="deletegood" parameterType="String">
+        delete from good where id = #{id}
+    </delete>
+
+</mapper>
