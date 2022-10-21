@@ -1,7 +1,10 @@
-package com.example.userservice.Util;
+package com.example.util;
 
 
 import lombok.Data;
+
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 @Data
 public class PageEntity {
@@ -12,7 +15,13 @@ public class PageEntity {
 
     public String account;
 
+    public String name;
+
     public String phone;
 
     public String address;
+
+    public String type;
+
+    public BigDecimal price;
 }

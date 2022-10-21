@@ -6,6 +6,9 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+
 @Data
 @TableName("good")
 public class GoodEntity {
@@ -19,7 +22,7 @@ public class GoodEntity {
 
     public Integer sum;
 
-    public Integer price;
+    public BigDecimal price;
 
     public String address;
 

@@ -5,7 +5,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.userservice.Util.JwtUtil;
-import com.example.userservice.Util.PageEntity;
+import com.example.util.PageEntity;
 import com.example.userservice.db.entity.UserEntity;
 import com.example.userservice.service.PageService;
 import com.example.userservice.service.UserService;

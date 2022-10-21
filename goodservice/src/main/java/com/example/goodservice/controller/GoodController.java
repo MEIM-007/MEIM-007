@@ -2,13 +2,14 @@ package com.example.goodservice.controller;
 
 
 import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.goodservice.db.entity.GoodEntity;
 import com.example.goodservice.service.GoodService;
+import com.example.goodservice.service.PageService;
+import com.example.util.PageEntity;
 import com.example.util.R;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Map;
@@ -19,6 +20,9 @@ public class GoodController {
 
     @Resource
     public GoodService goodService;
+
+    @Resource
+    public PageService pageService;
 
     @PostMapping("/insert")
     public R insertgood(@RequestBody GoodEntity goodEntity){
@@ -42,5 +46,19 @@ public class GoodController {
         if(goodService.deletegood(param.get("id").toString())){
             return R.ok().put("msg","删除成功");
         }else return R.error(444,"删除失败");
+    }
+    @GetMapping("/page")
+    public R findPage(@RequestBody PageEntity page){
+        QueryWrapper<GoodEntity> queryWrapper=new QueryWrapper<>();
+        if(page.getName()!=null){
+            queryWrapper.like("name",page.getName());
+        }
+        if(page.getType()!=null){
+            queryWrapper.like("type",page.getType());
+        }
+        if(page.getPrice()!=null){
+            queryWrapper.like("price",page.getPrice());
+        }
+        return R.ok().put("data",pageService.page(new Page<>(page.getPageNum(), page.getPageSize()),queryWrapper));
     }
 }
