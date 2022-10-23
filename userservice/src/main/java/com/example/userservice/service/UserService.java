@@ -13,4 +13,6 @@ public interface UserService {
 
     Boolean delete(String id);
 
+    Map selectOne(String id);
+
 }

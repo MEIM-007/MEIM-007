@@ -68,6 +68,17 @@ public class UserController {
         }
     }
 
+    @PostMapping("/selectone")
+    public R selectOne(@RequestBody UserEntity userEntity){
+        Map param = BeanUtil.beanToMap(userEntity);
+        Map map = userService.selectOne(param.get("id").toString());
+        if (map == null){
+            return R.error(444,"查询失败");}
+        else {
+            return R.ok().put("data",map);
+        }
+    }
+
     @GetMapping("/page")
     public R findPage(@RequestBody PageEntity page){
         QueryWrapper<UserEntity> queryWrapper=new QueryWrapper<>();

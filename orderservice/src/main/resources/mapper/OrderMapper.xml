@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.orderservice.db.dao.OrderDao">
+    <insert id="insertorder" parameterType="Map">
+        insert into orders
+        SET id = #{id}, name = #{name}, num = #{num},
+            good = #{good}, type = #{type}, create = #{create}
+    </insert>
+</mapper>

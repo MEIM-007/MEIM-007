@@ -10,4 +10,6 @@ public interface GoodDao {
 
     Integer deletegood(String id);
 
+    Map selectOne(String id);
+
 }

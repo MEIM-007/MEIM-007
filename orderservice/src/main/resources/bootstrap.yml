@@ -8,7 +8,7 @@ spring:
     username: root
     password: 458412625
   application:
-    name: orderservice
+    name: order-service
   cloud:
     nacos:
       discovery:

@@ -40,4 +40,9 @@
     <delete id="deleteuser" parameterType="String">
         delete from user where id = #{id}
     </delete>
+
+    <select id="selectOne" parameterType="Map" resultType="map">
+        select name,account,phone,address,avatar,email from user where
+        id = #{id}
+    </select>
 </mapper>

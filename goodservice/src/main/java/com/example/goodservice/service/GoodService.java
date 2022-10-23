@@ -9,4 +9,6 @@ public interface GoodService {
     Boolean updategood(Map param);
 
     Boolean deletegood(String id);
+
+    Map selectOne(String id);
 }

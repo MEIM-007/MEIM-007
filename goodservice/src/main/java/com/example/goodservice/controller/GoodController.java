@@ -28,8 +28,8 @@ public class GoodController {
     public R insertgood(@RequestBody GoodEntity goodEntity){
         Map map = BeanUtil.beanToMap(goodEntity);
         if(goodService.insertgood(map)){
-            return R.ok().put("msg","注册成功");
-        }else return R.error(444,"注册失败");
+            return R.ok().put("msg","入库成功");
+        }else return R.error(444,"入库失败");
     }
 
     @PostMapping("/update")
@@ -47,6 +47,15 @@ public class GoodController {
             return R.ok().put("msg","删除成功");
         }else return R.error(444,"删除失败");
     }
+
+    @PostMapping("/selectone")
+    public R selectOne(@RequestBody GoodEntity goodEntity){
+        Map param = BeanUtil.beanToMap(goodEntity);
+        if(goodService.selectOne(param.get("id").toString()) != null){
+            return R.ok().put("msg","查询成功").put("data",goodService.selectOne(param.get("id").toString()));
+        }else return R.error(444,"查询失败");
+    }
+
     @GetMapping("/page")
     public R findPage(@RequestBody PageEntity page){
         QueryWrapper<GoodEntity> queryWrapper=new QueryWrapper<>();

@@ -104,6 +104,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public Boolean update(Map param) {
         if(userDao.updateuser(param)==1){
             return true;
@@ -112,10 +113,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public Boolean delete(String id) {
         if(userDao.deleteuser(id)==1){
             return true;
         }
         return false;
+    }
+
+    @Override
+    @Transactional
+    public Map selectOne(String id) {
+        if (id==null){
+            return null;
+        }else if (userDao.selectOne(id)!=null){
+            return userDao.selectOne(id);
+        }else {
+            return null;
+        }
     }
 }

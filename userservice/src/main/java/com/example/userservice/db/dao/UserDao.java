@@ -13,4 +13,5 @@ public interface UserDao {
 
     int deleteuser(String id);
 
+    Map selectOne(String id);
 }
