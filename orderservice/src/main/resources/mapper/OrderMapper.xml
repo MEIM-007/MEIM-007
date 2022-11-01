@@ -4,7 +4,6 @@
 <mapper namespace="com.example.orderservice.db.dao.OrderDao">
     <insert id="insertorder" parameterType="Map">
         insert into orders
-        SET id = #{id}, name = #{name}, num = #{num},
-            good = #{good}, type = #{type}, create = #{create}
+        SET id = #{id}, name = #{UserId}, num = #{num}, good= #{GoodId}, price= #{price}, type = #{type}, createTime = #{createTime}
     </insert>
 </mapper>

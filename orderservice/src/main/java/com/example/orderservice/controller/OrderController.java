@@ -2,6 +2,7 @@ package com.example.orderservice.controller;
 
 
 import cn.hutool.core.bean.BeanUtil;
+import com.example.orderservice.db.entity.GoodEntity;
 import com.example.orderservice.db.entity.OrderEntity;
 import com.example.orderservice.service.OrderService;
 import com.example.util.R;
@@ -26,6 +27,5 @@ public class OrderController {
             return R.error().put("msg","创建订单失败");
         }
     }
-
 
 }
