@@ -59,9 +59,6 @@ public class GoodController {
     @GetMapping("/page")
     public R findPage(@RequestBody PageEntity page){
         QueryWrapper<GoodEntity> queryWrapper=new QueryWrapper<>();
-        if(page.getName()!=null){
-            queryWrapper.like("name",page.getName());
-        }
         if(page.getType()!=null){
             queryWrapper.like("type",page.getType());
         }

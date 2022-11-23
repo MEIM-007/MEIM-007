@@ -6,4 +6,8 @@
         insert into orders
         SET id = #{id}, name = #{UserId}, num = #{num}, good= #{GoodId}, price= #{price}, type = #{type}, createTime = #{createTime}
     </insert>
+
+    <select id="selectorder" parameterType="Map" resultType="Map">
+        select * from orders where id = #{id}
+    </select>
 </mapper>

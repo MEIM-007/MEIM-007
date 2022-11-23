@@ -37,15 +37,20 @@ public class OrderServiceImpl implements OrderService {
             GoodEntity goodEntity = new GoodEntity();
             goodEntity.setId((Long) param.get("GoodId"));
             Map goodMap = BeanUtil.beanToMap(goodFeign.selectOne(goodEntity).get("data"));
-            if((Integer)goodMap.get("sum")>0){
+            if((Integer)goodMap.get("sum")>0 && (Integer)goodMap.get("sum")-(Integer)param.get("num")>=0){
                 SnowflakeIdWorker snowflakeIdWorker = new SnowflakeIdWorker(workerId%2,1);
                 Long id = snowflakeIdWorker.nextId();
                 Date date=new Date();
                 SimpleDateFormat dateFormat_min=new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
                 param.put("id", id);
                 param.put("createTime", dateFormat_min.format(date));
-                if(orderDao.insertorder(param)){
-                    return true;
+                goodEntity.setSum((Integer)goodMap.get("sum")-(Integer)param.get("num"));
+                if(goodFeign.updategood(goodEntity).get("code").equals(200)){
+                    if(orderDao.insertorder(param)) {
+                        return true;
+                    }else {
+                        return false;
+                    }
                 }else {
                     return false;
                 }

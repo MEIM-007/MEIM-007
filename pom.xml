@@ -9,6 +9,7 @@
         <module>orderservice</module>
         <module>commons</module>
         <module>gateway</module>
+        <module>fileservice</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

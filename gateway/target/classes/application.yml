@@ -6,7 +6,7 @@ spring:
     name: gateway # 此服务的名称（注册到注册中心用）
   cloud:
     nacos:
-      server-addr: localhost:8848 # 注册到的nacos地址
+      server-addr: 1.12.238.40:8848 # 注册到的nacos地址
     # alibaba在2020版之后不使用ribbon,这里使用loadbalancer代替,在配置文件中禁用ribbon
     loadbalander:
       ribbon:

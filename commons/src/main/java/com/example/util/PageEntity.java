@@ -15,7 +15,7 @@ public class PageEntity {
 
     public String account;
 
-    public String name;
+    public String yytname;
 
     public String phone;
 
